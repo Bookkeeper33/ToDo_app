@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://kit.fontawesome.com/ab0092f353.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>MagicDO</title>
+    </head>
+    <body>
+        <header id="header">
+            <div class="logo">
+                <i class="fa-solid fa-fire fa-2xl" style="color: #dd3153"></i>
+            </div>
+            <div class="title">
+                <h1>Do to do</h1>
+            </div>
+        </header>
+
+        <nav id="sidebar">
+            <div class="default">
+                <ol>
+                    <li class="nav-link">
+                        <button class="btn-task">
+                            <i
+                                class="fa-solid fa-circle-plus fa-xl"
+                                style="color: #d2544b"
+                            ></i
+                            >Add task
+                        </button>
+                    </li>
+                    <li class="nav-link">
+                        <button class="active">
+                            <i class="icon fa-solid fa-inbox fa-lg"></i>Inbox
+                        </button>
+                    </li>
+                    <li class="nav-link">
+                        <button>
+                            <i class="icon fa-solid fa-calendar-day fa-lg"></i
+                            >Today
+                        </button>
+                    </li>
+                    <li class="nav-link">
+                        <button>
+                            <i
+                                class="icon fa-regular fa-calendar-days fa-lg"
+                            ></i
+                            >Upcoming
+                        </button>
+                    </li>
+                </ol>
+            </div>
+            <div class="custom-projects">
+                <div class="custom-panel">
+                    <h2>Projects</h2>
+                    <button class="btn-project">
+                        <i class="fa-solid fa-plus fa-xl"></i>
+                    </button>
+                </div>
+                <ol>
+                    <li class="nav-link">
+                        <button>
+                            <i class="icon fa-solid fa-hashtag"></i>Eric
+                        </button>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+        <main id="content">
+            <div class="header">
+                <h2>Inbox</h2>
+            </div>
+            <div class="container">
+                <ul class="list-items">
+                    <li class="item">
+                        <div class="item-check">
+                            <input type="checkbox" class="high-priority" />
+                        </div>
+                        <div class="item-info">
+                            <div class="item-title">
+                                <h2>Test title</h2>
+                            </div>
+                            <div class="item-date">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <p>21 Dec</p>
+                            </div>
+                            <div class="item-description">
+                                <p>Some simple description here</p>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <button>
+                                <i
+                                    class="fa-solid fa-circle-info fa-2xl"
+                                    style="color: #dd3153"
+                                ></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-check">
+                            <input type="checkbox" class="high-priority" />
+                        </div>
+                        <div class="item-info">
+                            <div class="item-title">
+                                <h2>Test title</h2>
+                            </div>
+                            <div class="item-date">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <p>21 Dec</p>
+                            </div>
+                            <div class="item-description">
+                                <p>Some simple description here</p>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <button>
+                                <i
+                                    class="fa-solid fa-circle-info fa-2xl"
+                                    style="color: #dd3153"
+                                ></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <dialog id="modal-project">
+            <div class="form-title">
+                <h2>Add project</h2>
+            </div>
+            <form id="project" method="dialog">
+                <div class="project-control">
+                    <label for="projectName">Project name: </label>
+                    <input
+                        type="text"
+                        name="projectName"
+                        id="projectName"
+                        required
+                    />
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-add" value="confirm">Add</button>
+                    <button class="btn-cancel" value="cancel">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+        <dialog id="modal-task" open>
+            <div class="task-header">
+                <h2>Inbox</h2>
+                <button>X</button>
+            </div>
+            <div class="task">
+                <div class="task-left"></div>
+                <div class="task-right"></div>
+            </div>
+        </dialog>
+    </body>
+</html>
