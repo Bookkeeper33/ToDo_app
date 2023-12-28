@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <script
+            src="https://kit.fontawesome.com/ab0092f353.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>MagicDO</title>
+        <script defer="defer" src="main.0ec308c2f6cb634dd826.js"></script>
+        <link href="main.05bbbf7209c6f5d14e72.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header id="header">
+            <div class="logo">
+                <i class="fa-solid fa-fire fa-2xl" style="color: #dd3153"></i>
+            </div>
+            <div class="title"><h1>Do to do</h1></div>
+        </header>
+        <nav id="sidebar">
+            <div class="default">
+                <ol>
+                    <li class="nav-link">
+                        <button class="btn-task">
+                            <i
+                                class="fa-solid fa-circle-plus fa-xl"
+                                style="color: #d2544b"
+                            ></i
+                            >Add task
+                        </button>
+                    </li>
+                    <li class="nav-link">
+                        <button id="inbox" class="btn active">
+                            <i class="icon fa-solid fa-inbox fa-lg"></i>Inbox
+                        </button>
+                    </li>
+                    <li class="nav-link">
+                        <button id="today" class="btn">
+                            <i class="icon fa-solid fa-calendar-day fa-lg"></i
+                            >Today
+                        </button>
+                    </li>
+                    <li class="nav-link">
+                        <button id="upcoming" class="btn">
+                            <i
+                                class="icon fa-regular fa-calendar-days fa-lg"
+                            ></i
+                            >Upcoming
+                        </button>
+                    </li>
+                </ol>
+            </div>
+            <div class="custom-projects">
+                <div class="custom-panel">
+                    <h2>Projects</h2>
+                    <button class="btn-project">
+                        <i class="fa-solid fa-plus fa-xl"></i>
+                    </button>
+                </div>
+                <ol id="custom-list"></ol>
+            </div>
+        </nav>
+        <main id="content"></main>
+        <dialog id="modal-project">
+            <div class="form-title"><h2>Add project</h2></div>
+            <form id="project" method="dialog">
+                <div class="project-control">
+                    <label for="projectName">Project name:</label>
+                    <input
+                        name="projectName"
+                        id="projectName"
+                        minlength="1"
+                        maxlength="20"
+                        required
+                    />
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-add" value="confirm">Add</button>
+                    <button type="button" class="btn-cancel" value="cancel">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </dialog>
+        <dialog id="modal-task">
+            <div class="task-header">
+                <h2>Inbox</h2>
+                <button>❌</button>
+            </div>
+            <form id="task-form" method="dialog">
+                <div class="task">
+                    <div class="task-left">
+                        <div class="task-control">
+                            <label for="taskTitle">Task</label>
+                            <input
+                                id="taskTitle"
+                                name="taskTitle"
+                                placeholder="Task title"
+                                minlength="1"
+                                maxlength="20"
+                                required
+                            />
+                        </div>
+                        <div class="task-control">
+                            <label for="description">Description</label>
+                            <textarea
+                                id="description"
+                                rows="5"
+                                cols="5"
+                                maxlength="400"
+                                placeholder="Description"
+                                name="description"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div class="task-right">
+                        <div class="task-control">
+                            <label for="initProjects"></label>
+                            <span>Project</span>
+                            <select id="initProjects" name="project"></select>
+                        </div>
+                        <div class="task-control">
+                            <label for="date"></label> <span>Due Date</span>
+                            <input type="date" name="dueDate" id="date" />
+                        </div>
+                        <div class="task-control">
+                            <label for="priority"></label> <span>Priority</span>
+                            <select id="priority" name="priority">
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-add">Save</button>
+                    <button type="button" class="btn-cancel">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+    </body>
+</html>
