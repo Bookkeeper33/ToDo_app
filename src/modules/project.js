@@ -1,3 +1,4 @@
+import { isToday, differenceInCalendarDays } from "date-fns";
 import propValidation from "./simpleValidation";
 import { MAX_TITLE_LENGTH } from "./constants";
 
@@ -18,7 +19,7 @@ export default class Project {
     }
 
     get tasks() {
-        return this.sortByDate(this.tasks);
+        return this.#sortByDate(this.tasks);
     }
 
     set tasks(newTasks) {
@@ -31,40 +32,34 @@ export default class Project {
         this.tasks.push(newTask);
     }
 
-    removeTask(taskTitle) {
-        this.tasks = this.tasks.filter((task) => taskTitle !== task.title);
+    removeTask(id) {
+        this.tasks = this.tasks.filter((task) => id !== task.id);
     }
 
-    findTaskByTitle(taskTitle) {
-        return this.tasks.find((task) => task.title === taskTitle);
-    }
-
-    sortByDate(tasks) {
-        return tasks.toSorted((a, b) => a.dueDate - b.dueDate);
+    findTask(id) {
+        return this.tasks.find((task) => task.id === id);
     }
 
     getTodayTasks() {
         return this.tasks.filter((task) => {
-            const day = new Date().getDay();
-            const month = new Date().getMonth();
-            const year = new Date().getFullYear();
-
-            return (
-                task.dueDate.getDay() === day &&
-                task.dueDate.getMonth() === month &&
-                task.dueDate.getFullYear() === year
-            );
+            return isToday(task.dueDate);
         });
     }
 
     getUpcomingTasks() {
-        return this.tasks.filter((task) => {
-            const nextWeekDate = new Date(
-                task.dueDate.getTime() + 7 * 24 * 60 * 60 * 1000
-            );
-            const currentDate = new Date();
+        const MIN_DIFFERENCE = 7;
 
-            return task.dueDate > currentDate && task.dueDate <= nextWeekDate;
+        return this.tasks.filter((task) => {
+            const difference = differenceInCalendarDays(
+                task.dueDate,
+                new Date()
+            );
+
+            return difference >= MIN_DIFFERENCE;
         });
+    }
+
+    #sortByDate(tasks) {
+        return tasks.toSorted((a, b) => a.dueDate - b.dueDate);
     }
 }

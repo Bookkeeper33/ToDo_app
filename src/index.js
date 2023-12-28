@@ -1,12 +1,5 @@
 import "./style.css";
 
-import App from "./modules/app";
-import Task from "./modules/task";
+import UI from "./modules/ui";
 
-const app = new App();
-const addProjectBtn = document.querySelector(".btn-project");
-const dialog = document.getElementById("modal-project");
-
-addProjectBtn.addEventListener("click", () => {
-    dialog.showModal();
-});
+const ui = new UI();

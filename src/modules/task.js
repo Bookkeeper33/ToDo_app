@@ -2,9 +2,8 @@ import propValidation from "./simpleValidation";
 import { MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from "./constants";
 
 export default class Task {
-    #comments = [];
-
-    constructor(title, description, dueDate, priority) {
+    constructor(id, title, description, dueDate, priority) {
+        this._id = id;
         this._title = propValidation(title.length, MAX_TITLE_LENGTH)
             ? title
             : "Default";
@@ -16,6 +15,10 @@ export default class Task {
             : "No description";
         this._dueDate = dueDate;
         this._priority = priority;
+    }
+
+    get id() {
+        return this._id;
     }
 
     get title() {
@@ -53,18 +56,5 @@ export default class Task {
 
     set priority(newPriority) {
         this._priority = newPriority;
-    }
-
-    get comments() {
-        return this.#comments;
-    }
-
-    addComment(text) {
-        if (!propValidation(text.length, MAX_DESCRIPTION_LENGTH)) return;
-        this.#comments.push(text);
-    }
-
-    removeComment(index) {
-        this.#comments = this.#comments.toSpliced(index, 1);
     }
 }

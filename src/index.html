@@ -32,18 +32,18 @@
                         </button>
                     </li>
                     <li class="nav-link">
-                        <button class="active">
+                        <button id="inbox" class="btn active">
                             <i class="icon fa-solid fa-inbox fa-lg"></i>Inbox
                         </button>
                     </li>
                     <li class="nav-link">
-                        <button>
+                        <button id="today" class="btn">
                             <i class="icon fa-solid fa-calendar-day fa-lg"></i
                             >Today
                         </button>
                     </li>
                     <li class="nav-link">
-                        <button>
+                        <button id="upcoming" class="btn">
                             <i
                                 class="icon fa-regular fa-calendar-days fa-lg"
                             ></i
@@ -59,74 +59,10 @@
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </button>
                 </div>
-                <ol>
-                    <li class="nav-link">
-                        <button>
-                            <i class="icon fa-solid fa-hashtag"></i>Eric
-                        </button>
-                    </li>
-                </ol>
+                <ol id="custom-list"></ol>
             </div>
         </nav>
-        <main id="content">
-            <div class="header">
-                <h2>Inbox</h2>
-            </div>
-            <div class="container">
-                <ul class="list-items">
-                    <li class="item">
-                        <div class="item-check">
-                            <input type="checkbox" class="high-priority" />
-                        </div>
-                        <div class="item-info">
-                            <div class="item-title">
-                                <h2>Test title</h2>
-                            </div>
-                            <div class="item-date">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <p>21 Dec</p>
-                            </div>
-                            <div class="item-description">
-                                <p>Some simple description here</p>
-                            </div>
-                        </div>
-                        <div class="item-details">
-                            <button>
-                                <i
-                                    class="fa-solid fa-circle-info fa-2xl"
-                                    style="color: #dd3153"
-                                ></i>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="item-check">
-                            <input type="checkbox" class="high-priority" />
-                        </div>
-                        <div class="item-info">
-                            <div class="item-title">
-                                <h2>Test title</h2>
-                            </div>
-                            <div class="item-date">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <p>21 Dec</p>
-                            </div>
-                            <div class="item-description">
-                                <p>Some simple description here</p>
-                            </div>
-                        </div>
-                        <div class="item-details">
-                            <button>
-                                <i
-                                    class="fa-solid fa-circle-info fa-2xl"
-                                    style="color: #dd3153"
-                                ></i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </main>
+        <main id="content"></main>
 
         <dialog id="modal-project">
             <div class="form-title">
@@ -139,24 +75,79 @@
                         type="text"
                         name="projectName"
                         id="projectName"
+                        minlength="1"
+                        maxlength="20"
                         required
                     />
                 </div>
                 <div class="form-buttons">
                     <button class="btn-add" value="confirm">Add</button>
-                    <button class="btn-cancel" value="cancel">Cancel</button>
+                    <button type="button" class="btn-cancel" value="cancel">
+                        Cancel
+                    </button>
                 </div>
             </form>
         </dialog>
-        <dialog id="modal-task" open>
+        <dialog id="modal-task">
             <div class="task-header">
                 <h2>Inbox</h2>
-                <button>X</button>
+                <button>❌</button>
             </div>
-            <div class="task">
-                <div class="task-left"></div>
-                <div class="task-right"></div>
-            </div>
+
+            <form id="task-form" method="dialog">
+                <div class="task">
+                    <div class="task-left">
+                        <div class="task-control">
+                            <label for="taskTitle">Task</label>
+                            <input
+                                type="text"
+                                id="taskTitle"
+                                name="taskTitle"
+                                placeholder="Task title"
+                                minlength="1"
+                                maxlength="20"
+                                required
+                            />
+                        </div>
+                        <div class="task-control">
+                            <label for="description">Description</label>
+                            <textarea
+                                id="description"
+                                rows="5"
+                                cols="5"
+                                maxlength="400"
+                                placeholder="Description"
+                                name="description"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div class="task-right">
+                        <div class="task-control">
+                            <label for="initProjects"></label>
+                            <span>Project</span>
+                            <select id="initProjects" name="project"></select>
+                        </div>
+                        <div class="task-control">
+                            <label for="date"></label>
+                            <span>Due Date</span>
+                            <input type="date" name="dueDate" id="date" />
+                        </div>
+                        <div class="task-control">
+                            <label for="priority"></label>
+                            <span>Priority</span>
+                            <select id="priority" name="priority">
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-add">Save</button>
+                    <button type="button" class="btn-cancel">Cancel</button>
+                </div>
+            </form>
         </dialog>
     </body>
 </html>
