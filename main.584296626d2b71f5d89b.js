@@ -4464,7 +4464,7 @@ class UI {
         );
         this.createTask(
             "Finish TO DO app",
-            "Fucking tired",
+            "Tired 😪",
             new Date("5 Jan 2024"),
             "high",
             "Inbox"
@@ -4483,4 +4483,4 @@ const ui = new UI();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.0ec308c2f6cb634dd826.js.map
+//# sourceMappingURL=main.584296626d2b71f5d89b.js.map
